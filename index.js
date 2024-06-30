@@ -170,7 +170,7 @@ async function WaConnect() {
                  );
                  break;
 		 case "menfess":
-				if (args.length < 2) return reply(`Silahkan masukkan format seperti contoh dibawah\n\nContoh format:\n${command} Nomer|Nama|Pesan`)
+				if (args.length < 1) return reply(`Silahkan masukkan format seperti contoh dibawah\n\nContoh format:\n${command} Nomer|Nama|Pesan`)
 				var number_to = q.split('|')[0]; var msg_send = q.split('|')[1]
              number_to = number_to.replace(/[^0-9]/gi, '')+"@s.whatsapp.net"
              var buttonMessage = {
