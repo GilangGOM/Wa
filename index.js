@@ -8,7 +8,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const readline = require('readline')
 const glob = require("glob");
-
+const args = chats.split(' ')
 // Session
 global.session = 'auth'
 // PairingCode
