@@ -183,7 +183,7 @@ async function WaConnect() {
 				}
 				socket.sendMessage(number_to, buttonMessage)
 				reply(`Sukses mengirim kode otp`)
-				break:
+				break;
          }
     })
   }catch(err){
