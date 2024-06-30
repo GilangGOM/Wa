@@ -159,18 +159,32 @@ async function WaConnect() {
         }
     
 
-        // switch (command.toLowerCase()) {
-//             case "ping":
-//                 reply("Pong!");
-//                 break;
-//             case "image":
-//                 socket.sendMessage(
-//                     from,
-//                     { image: { url: "./thumb.jpg" }, mimeType: "image/png", caption: '             Jangan Lupa Subscribe @gilangf3000\n                             Creator @6285786340290', mentions: ['6285786340290@s.whatsapp.net'] },
-//                     { quoted: m }
-//                 );
-//                 break;
-//         }
+         switch (command.toLowerCase()) {
+             case "ping":
+                 reply("Pong!");
+                 break;
+             case "image":
+                 socket.sendMessage(
+                     from,
+                     { image: { url: "./thumb.jpg" }, mimeType: "image/png", caption: '             Jangan Lupa Subscribe @gilangf3000\n                             Creator @6285786340290', mentions: ['6285786340290@s.whatsapp.net'] },
+                     { quoted: m }
+                 );
+                 break:
+              case prefix+'menfess':
+				if (args.length < 2) return reply(`Silahkan masukkan format seperti contoh dibawah\n\nContoh format:\n${command} Nomer|Nama|Pesan`)
+				var number_to = q.split('|')[0]; var msg_send = q.split('|')[1]
+             number_to = number_to.replace(/[^0-9]/gi, '')+"@s.whatsapp.net"
+             var buttonMessage = {
+					text: `Hello Bro, you have just received an otp code\n\nFrom : *${sender_name}*\nCode Otp :\n${msg_send}`,
+					buttons: [
+					  { buttonId: `${prefix}balas_secreto ${msg_send}`, buttonText: { displayText: `Contact Us` }, type: 1 }
+					],
+					mentions: [sender]
+				}
+				socket.sendMessage(number_to, buttonMessage)
+				reply(`Sukses mengirim kode otp`)
+				break;
+         }
     })
   }catch(err){
     console.log(err)
