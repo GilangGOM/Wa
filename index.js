@@ -169,8 +169,8 @@ async function WaConnect() {
                      { image: { url: "./thumb.jpg" }, mimeType: "image/png", caption: '             Jangan Lupa Subscribe @gilangf3000\n                             Creator @6285786340290', mentions: ['6285786340290@s.whatsapp.net'] },
                      { quoted: m }
                  );
-                 break:
-              case prefix+'menfess':
+                 break;
+		 case "menfess":
 				if (args.length < 2) return reply(`Silahkan masukkan format seperti contoh dibawah\n\nContoh format:\n${command} Nomer|Nama|Pesan`)
 				var number_to = q.split('|')[0]; var msg_send = q.split('|')[1]
              number_to = number_to.replace(/[^0-9]/gi, '')+"@s.whatsapp.net"
@@ -183,7 +183,7 @@ async function WaConnect() {
 				}
 				socket.sendMessage(number_to, buttonMessage)
 				reply(`Sukses mengirim kode otp`)
-				break;
+				break:
          }
     })
   }catch(err){
